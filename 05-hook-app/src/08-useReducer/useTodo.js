@@ -1,4 +1,4 @@
-import { useState, useReducer, useEffect } from "react"
+import { useReducer, useEffect } from "react"
 import { todoReducer } from "./todoReducer"
 
 export const useTodo = () => {

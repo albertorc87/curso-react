@@ -1,12 +1,13 @@
 import { Navbar } from "./Navbar"
-import { Route, Routes } from "react-router-dom"
+import { Navigate, Route, Routes } from "react-router-dom"
 import { AboutPage } from "./AboutPage"
 import { HomePage } from "./HomePage"
 import { LoginPage } from "./LoginPage"
+import { UserProvider } from "./context/UserProvider"
 
 export const MainApp = () => {
     return (
-        <>
+        <UserProvider>
             <Navbar />
 
             <hr />
@@ -15,8 +16,8 @@ export const MainApp = () => {
                 <Route path="/about" element={<AboutPage />} />
                 <Route path="/login" element={<LoginPage />} />
 
-                <Route path="/*" element={<h1>404 Not Found</h1>} />
+                <Route path="/*" element={<Navigate to="/about"/>} />
             </Routes>
-        </>
+        </UserProvider>
     )
 }
